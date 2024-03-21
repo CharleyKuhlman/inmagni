@@ -1,0 +1,42 @@
+{
+  "name": "inmagni",
+  "version": "1.0.0",
+  "description": "A tiny typed messaging system inspired by js-signals that uses ES2015 sets",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "devDependencies": {
+    "@types/rimraf": "0.0.28",
+    "@types/tape": "^4.2.30",
+    "erasmus": "^0.1.0",
+    "faucet": "0.0.1",
+    "nyc": "^11.0.2",
+    "rimraf": "^2.6.1",
+    "tape": "^4.6.3",
+    "ts-node": "^3.1.0",
+    "tslint": "^3.13.3",
+    "typescript": "^2.2.2"
+  },
+  "scripts": {
+    "lint": "tslint --project ./tsconfig.json",
+    "test": "npm run lint && nyc tape 'test/*.ts' | faucet && nyc report",
+    "build": "rimraf lib && tsc -p tsconfig.build.json",
+    "preversion": "npm install && npm test && npm run build",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CharleyKuhlman/inmagni.git"
+  },
+  "keywords": [
+    "signals",
+    "signal",
+    "TypeScript",
+    "ts",
+    "magni",
+    "messaging",
+    "fuga"
+  ],
+  "author": "PatrickGaylord",
+  "license": "MIT",
+  "homepage": "https://github.com/CharleyKuhlman/inmagni.git"
+}
